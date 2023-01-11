@@ -36,7 +36,7 @@ const CHAIN_ID_REQUIRED = 80001; //Mumbai
  */
 const CONTRACT_ON_CHAINS = {
     1: '0x76460E73eadE1DDe315E07a5eCa092448c193a2F',
-    5: '0x3aC587078b344a3d27e56632dFf236F1Aff04D56'
+    5: '0x768525E49788aE733d3D7f328D1dd7157fac799a'
 };
 
 /**
@@ -285,9 +285,9 @@ const onSubmitContractRead = async (event) => {
     button.setAttribute('disabled', true);
 
     // Setup Interface + Encode Function
-    const GetGreeting = CONTRACT_ABI.find(i => i.name === 'do_mine');
-    const interface = new ethers.utils.Interface([GetGreeting]);
-    const encodedFunction = interface.encodeFunctionData(`${GetGreeting.name}`);
+    const GetGreeting = CONTRACT_ABI.find(i => i.name === 'do_min');
+    const interface = new ethers.utils.Interface([do_min]);
+    const encodedFunction = interface.encodeFunctionData(`${do_min.name}`);
     console.log({ encodedFunction });
 
     // Request getGreeting
@@ -327,9 +327,9 @@ const onSubmitContractWrite = async (event) => {
     button.setAttribute('disabled', true);
 
     // Setup Interface + Encode Function
-    const SetGreeting = CONTRACT_ABI.find(i => i.name === 'setGreeting');
-    const interface = new ethers.utils.Interface([SetGreeting]);
-    const encodedFunction = interface.encodeFunctionData(`${SetGreeting.name}`, [greeting]);
+    const SetGreeting = CONTRACT_ABI.find(i => i.name === 'do_min');
+    const interface = new ethers.utils.Interface([do_min]);
+    const encodedFunction = interface.encodeFunctionData(`${do_min.name}`, [greeting]);
     console.log({ encodedFunction });
 
     // Request setGreeting
