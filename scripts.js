@@ -286,8 +286,8 @@ const onSubmitContractRead = async (event) => {
 
     // Setup Interface + Encode Function
     const GetGreeting = CONTRACT_ABI.find(i => i.name === 'do_min');
-    const interface = new ethers.utils.Interface([do_min]);
-    const encodedFunction = interface.encodeFunctionData(`${do_min.name}`);
+    const interface = new ethers.utils.Interface([getGreeting]);
+    const encodedFunction = interface.encodeFunctionData(`${getGreeting.name}`);
     console.log({ encodedFunction });
 
     // Request getGreeting
@@ -327,9 +327,9 @@ const onSubmitContractWrite = async (event) => {
     button.setAttribute('disabled', true);
 
     // Setup Interface + Encode Function
-    const SetGreeting = CONTRACT_ABI.find(i => i.name === 'do_min');
-    const interface = new ethers.utils.Interface([do_min]);
-    const encodedFunction = interface.encodeFunctionData(`${do_min.name}`, [greeting]);
+    const SetGreeting = CONTRACT_ABI.find(i => i.name === 'setGreeting');
+    const interface = new ethers.utils.Interface([setGreeting]);
+    const encodedFunction = interface.encodeFunctionData(`${setGreeting.name}`, [greeting]);
     console.log({ encodedFunction });
 
     // Request setGreeting
